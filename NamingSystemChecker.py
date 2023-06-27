@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-import 
+import os
 
 paths = ['structuredefinitions','valuesets','codesystems']
 for path in paths:
