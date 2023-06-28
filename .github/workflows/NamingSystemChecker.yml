@@ -35,5 +35,5 @@ jobs:
 
       
       - name: Execute Naming Convention Check
-        run: ls
-        #run: test_scripts/python NamingSystemChecker.py
+        #run: ls
+        run: test_scripts/python NamingSystemChecker.py
