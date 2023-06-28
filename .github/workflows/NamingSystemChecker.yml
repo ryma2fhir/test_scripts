@@ -25,7 +25,6 @@ jobs:
         uses: actions/checkout@master
         with:
           repository: ryma2fhir/test_scripts
-          ref: main
           path: test_scripts
 
       - name: Set up python
