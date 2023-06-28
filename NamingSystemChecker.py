@@ -44,7 +44,13 @@ for path in paths:
             print("\t"+file)
             for x in warnings:
                 print(x)
-            
+
+examplesPath = os.listdir('./examples')
+print('examples')
+for examples in examplesPath:
+    if not examples.endswith("Example.xml"):
+        print(examples," - The filename is incorrect")
+              
 print("\n\nCheck Complete!")
     
         
