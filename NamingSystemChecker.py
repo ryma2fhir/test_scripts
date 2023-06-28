@@ -49,7 +49,7 @@ examplesPath = os.listdir('./examples')
 print('examples')
 for examples in examplesPath:
     if not examples.endswith("Example.xml"):
-        print(examples," - The filename is incorrect")
+        print("\t",examples," - The filename is does not have the suffix 'Example'")
               
 print("\n\nCheck Complete!")
     
