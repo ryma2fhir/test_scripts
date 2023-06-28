@@ -6,12 +6,12 @@ for path in paths:
     files = os.listdir('./'+path)
     print(path)
     for file in files:
-        for key,value in elements.items():
-            try:
-                if root.findall('.//{*}'+str('status'))[0].get('value') == 'retired':
-                    break
-            except:
-                pass
+        '''do not check retired assets'''
+        try:
+            if root.findall('.//{*}'+str('status'))[0].get('value') == 'retired':
+                break
+        except:
+            pass
         
         '''Check files are in correct folder '''
         if path == 'structuredefinitions' and file.split('-')[0]!='Extension' and file.split('-')[0]!='UKCore':
@@ -21,12 +21,13 @@ for path in paths:
         if path == 'codesystems' and file.split('-')[0]!='CodeSystem':
             print("The file '"+file+"' has either an incorrect prefix or in the wrong folder '"+path+"'.") 
         
-        '''open file'''
+        '''open file to find element values'''
         tree = ET.parse("./"+path+"/"+file)
         root = tree.getroot()
-        '''do not check retired assets'''
+        
         elements = {'ID':'id','url':'url','name':'name','title':'title'}
         '''check for missing elements'''
+        for key,value in elements.items():
             try:
                 elements[key]=(root.findall('.//{*}'+str(value))[0].get('value'))
             except:
