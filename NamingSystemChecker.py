@@ -6,6 +6,12 @@ for path in paths:
     files = os.listdir('./'+path)
     print(path)
     for file in files:
+        for key,value in elements.items():
+            try:
+                if root.findall('.//{*}'+str('status'))[0].get('value') == 'retired':
+                    break
+            except:
+                pass
         
         '''Check files are in correct folder '''
         if path == 'structuredefinitions' and file.split('-')[0]!='Extension' and file.split('-')[0]!='UKCore':
@@ -21,12 +27,6 @@ for path in paths:
         '''do not check retired assets'''
         elements = {'ID':'id','url':'url','name':'name','title':'title'}
         '''check for missing elements'''
-        for key,value in elements.items():
-            try:
-                if root.findall('.//{*}'+str('status'))[0].get('value') == 'retired':
-                    break
-            except:
-                pass
             try:
                 elements[key]=(root.findall('.//{*}'+str(value))[0].get('value'))
             except:
