@@ -22,4 +22,4 @@ jobs:
 
       
       - name: Execute Naming Convention Check
-        run: python NamingSystemChecker.py
+        run: python ./NamingSystemChecker.py
