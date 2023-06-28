@@ -19,7 +19,7 @@ for path in paths:
             pass
         
         '''Check files are in correct folder '''
-        if path == 'structuredefinitions' and file.split('-')[0]!='Extension' and file.split('-')[0]!='UKCore':
+        if path == 'structuredefinitions' and (examples.endswith("Example.xml") or (not file.startswith('Extension') and not file.startswith('UKCore'))):
             print("The file '"+file+"' has either an incorrect prefix or in the wrong folder '"+path+"'.")
         if path == 'valuesets' and file.split('-')[0]!='ValueSet':
             print("The file '"+file+"' has either an incorrect prefix or in the wrong folder '"+path+"'.")  
