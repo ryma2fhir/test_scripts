@@ -53,7 +53,8 @@ for path in paths:
             print("\t"+file)
             for x in warnings:
                 print(x)
-
+                
+'''check example filenames'''
 examplesPath = os.listdir('./examples')
 print('examples')
 for examples in examplesPath:
