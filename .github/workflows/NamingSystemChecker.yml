@@ -23,4 +23,5 @@ jobs:
 
       
       - name: Execute Naming Convention Check
+        run: echo "check"
         run: python NamingSystemChecker.py
