@@ -18,9 +18,15 @@ for path in paths:
         '''open file'''
         tree = ET.parse("./"+path+"/"+file)
         root = tree.getroot()
+        '''do not check retired assets'''
         elements = {'ID':'id','url':'url','name':'name','title':'title'}
         '''check for missing elements'''
         for key,value in elements.items():
+            try:
+                if root.findall('.//{*}'+str('status'))[0].get('value') == 'retired':
+                    break
+            except:
+                pass
             try:
                 elements[key]=(root.findall('.//{*}'+str(value))[0].get('value'))
             except:
