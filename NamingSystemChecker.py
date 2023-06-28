@@ -9,8 +9,10 @@ for path in paths:
         '''do not check retired assets'''
         try:
             if root.findall('.//{*}'+str('status'))[0].get('value') == 'retired':
+                print("retired",root.findall('.//{*}'+str('status'))[0].get('value'))
                 break
         except:
+            print("active",root.findall('.//{*}'+str('status'))[0].get('value'))
             pass
         
         '''Check files are in correct folder '''
