@@ -24,7 +24,7 @@ jobs:
       - name: Check out test_script
         uses: actions/checkout@master
         with:
-          repository: ryma2/test_scripts
+          repository: ryma2fhir/test_scripts
           ref: main
           path: test_scripts
 
