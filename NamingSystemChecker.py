@@ -9,10 +9,10 @@ for path in paths:
         '''open file to find element values'''
         tree = ET.parse("./"+path+"/"+file)
         root = tree.getroot()
+        
         '''do not check retired assets'''
         try:
             if root.findall('.//{*}'+str('status'))[0].get('value') == 'retired':
-                print("retired",root.findall('.//{*}'+str('status'))[0].get('value'))
                 break
         except:
             print("active",root.findall('.//{*}'+str('status'))[0].get('value'))
