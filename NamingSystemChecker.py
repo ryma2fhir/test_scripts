@@ -27,22 +27,23 @@ for path in paths:
                 print("\tThe element '"+key+"' is missing")
                 break
             
-        '''check elements naming convention are correct'''
+                '''check elements naming convention are correct'''
         fileName = file.replace('.xml','')
+        warnings = []
         if path == 'codesystems' or path == 'valuesets':
             fileName = '-'.join(fileName.split('-')[1:])
         if not fileName == elements['ID']:
-            print("\t"+file)
-            print("\t\tThe 'id' element: "+elements['ID']+" is incorrect")
+            warnings.append("\t\tThe 'id' element: "+elements['ID']+" is incorrect")
         if not fileName == elements['url'].split('/')[-1]:
-            print("\t"+file)
-            print("\t\tThe 'url' element: "+elements['url']+" is incorrect")
+            warnings.append("\t\tThe 'url' element: "+elements['url']+" is incorrect")
         if not ''.join(fileName.split('-')) == elements['name'].split('/')[-1]:
-            print("\t"+file)
-            print("\t\tThe 'name' element: "+elements['name']+" is incorrect")
+            warnings.append("\t\tThe 'name' element: "+elements['name']+" is incorrect")
         if not fileName.replace('-','') == elements['title'].replace(' ',''):
+            warnings.append("\t\tThe 'title' element: "+elements['title']+" is incorrect")
+        if warnings:
             print("\t"+file)
-            print("\t\tThe 'title' element: "+elements['title']+" is incorrect")
+            for x in warnings:
+                print(x)
             
 print("\n\nCheck Complete!")
     
