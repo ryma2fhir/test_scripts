@@ -36,6 +36,7 @@ for path in paths:
                 elements[key]=(root.findall('.//{*}'+str(value))[0].get('value')) 
             except:
                 print("\t",file," - The element '"+key+"' is missing")
+                break
                 stop = 1
             
         '''check elements naming convention are correct'''
