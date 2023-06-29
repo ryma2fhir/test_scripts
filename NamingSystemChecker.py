@@ -55,7 +55,7 @@ for path in paths:
         if not fileName.replace('-','') == elements['title'].replace(' ',''):
             warnings.append("\t\tThe 'title' element: "+elements['title']+" is incorrect")
         if warnings:
-            print("\t"+file)
+            print("\t",file)
             for x in warnings:
                 print(x)
                 
