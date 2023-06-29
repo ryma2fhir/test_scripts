@@ -28,7 +28,7 @@ for path in paths:
         if path == 'codesystems' and not file.startswith('CodeSystem'):
             print("\t",file," - The file has either an incorrect prefix or in the wrong folder '",path,"'")
             break
-
+        stop = 0
         '''check for missing elements'''
         elements = {'ID':'id','url':'url','name':'name','title':'title'}
         for key,value in elements.items():
@@ -36,10 +36,10 @@ for path in paths:
                 elements[key]=(root.findall('.//{*}'+str(value))[0].get('value')) 
             except:
                 print("\t",file," - The element '"+key+"' is missing")
+                stop = 1
                 break
-        else:
-            continue
-        break
+        if stop == 1:
+            break
             
         '''check elements naming convention are correct'''
         fileName = file.replace('.xml','')
