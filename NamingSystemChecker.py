@@ -84,7 +84,9 @@ for tag in root.findall('.//{*}type'):
 
 for p in currentProfiles:
     if p not in capabiltyStatement:
-        print(p,"is miissing from the CapabilityStatement")
+        print(p,"is missing from the CapabilityStatement")
+print(currentProfiles)
+print(capabilitystatement)
 print("\n\nCheck Complete!")
     
         
