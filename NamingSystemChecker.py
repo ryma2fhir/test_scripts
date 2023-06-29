@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import os
 
 paths = ['structuredefinitions','valuesets','codesystems']
-currents = [] #Used for checking against CapbilityStatement
+currentProfiles = [] #Used for checking against CapbilityStatement
 for path in paths:
     files = os.listdir('./'+path)
     print(path)
