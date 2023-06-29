@@ -85,9 +85,8 @@ for tag in root.findall('.//{*}type'):
 
 for p in currentProfiles:
     if p not in capabilityStatement:
-        print(p,"is missing from the CapabilityStatement")
-print(currentProfiles)
-print(capabilityStatement)
+        print("\t",p,"is missing from the CapabilityStatement")
+
 print("\n\nCheck Complete!")
     
         
