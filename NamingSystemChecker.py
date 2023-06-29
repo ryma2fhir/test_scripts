@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import os
 
 paths = ['structuredefinitions','valuesets','codesystems']
-currentProfiles = [] #Used for checking against CapbilityStatement
+currents = [] #Used for checking against CapbilityStatement
 for path in paths:
     files = os.listdir('./'+path)
     print(path)
@@ -25,10 +25,10 @@ for path in paths:
                 print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path+"'")
                 continue
             if file.startswith('UKCore'): #Used for Capabilitystatement Checking
-                name = file.replace('.xml','')
-                name = file.replace('UKCore-','')
+                profile = file.replace('.xml','')
+                profile = name.replace('UKCore-','')
                 if '-' not in name:
-                    currentProfiles.append(name)
+                    currentProfiles.append(profile)
                     
         if path == 'valuesets' and not file.startswith('ValueSet'):
             print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path+"'")
@@ -74,7 +74,7 @@ for examples in examplesPath:
     if not examples.endswith("Example.xml"):
         print("\t",examples," - The filename is does not have the suffix 'Example'")
 
-'''Capabilitystatement Checker - checks if all profiles are in the CapabilityStatement'''
+'''Capabilitystatement Checker - checks if all s are in the CapabilityStatement'''
 tree= ET.parse('./CapabilityStatement/CapabilityStatement-UKCore.xml')
 root = tree.getroot()
 
@@ -83,10 +83,10 @@ capabilityStatement = []
 for tag in root.findall('.//{*}type'):
     capabilityStatement.append(tag.attrib["value"])
 
-for p in currentProfiles:
+for p in currents:
     if p not in capabilityStatement:
         print(p,"is missing from the CapabilityStatement")
-print(currentProfiles)
+print(currents)
 print(capabilityStatement)
 print("\n\nCheck Complete!")
     
