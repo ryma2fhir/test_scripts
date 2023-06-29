@@ -37,9 +37,6 @@ for path in paths:
             except:
                 print("\t",file," - The element '"+key+"' is missing")
                 stop = 1
-                break
-        if stop == 1:
-            break
             
         '''check elements naming convention are correct'''
         fileName = file.replace('.xml','')
