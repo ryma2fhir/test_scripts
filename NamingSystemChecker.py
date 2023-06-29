@@ -20,13 +20,13 @@ for path in paths:
         
         '''Check files are in correct folder '''
         if path == 'structuredefinitions' and (file.endswith("Example.xml") or (not file.startswith('Extension') and not file.startswith('UKCore'))):
-            print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path"'")
+            print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path+"'")
             continue
         if path == 'valuesets' and not file.startswith('ValueSet'):
-            print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path"'")
+            print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path+"'")
             continue
         if path == 'codesystems' and not file.startswith('CodeSystem'):
-            print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path"'")
+            print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path+"'")
             continue
         stop = 0
         '''check for missing elements'''
