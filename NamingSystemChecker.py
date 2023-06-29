@@ -36,7 +36,9 @@ for path in paths:
                 elements[key]=(root.findall('.//{*}'+str(value))[0].get('value')) 
             except:
                 print("\tThe element '"+key+"' is missing")
-                continue
+        else:
+            continue
+        break
             
         '''check elements naming convention are correct'''
         fileName = file.replace('.xml','')
