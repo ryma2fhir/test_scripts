@@ -79,7 +79,7 @@ root = tree.getroot()
 
 capabilityStatement = []
 for tag in root.findall('.//{*}type'):
-    capabilitystatement.append(tag.attrib["value"])
+    capabilityStatement.append(tag.attrib["value"])
 
 for p in currentProfiles:
     if p not in capabiltyStatement:
