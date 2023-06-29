@@ -2,6 +2,7 @@ import xml.etree.ElementTree as ET
 import os
 
 paths = ['structuredefinitions','valuesets','codesystems']
+currentProfiles = [] #Used for checking against CapbilityStatement
 for path in paths:
     files = os.listdir('./'+path)
     print(path)
@@ -17,7 +18,7 @@ for path in paths:
         except:
             print("active",root.findall('.//{*}'+str('status'))[0].get('value'))
 
-        currentProfiles = [] #Used for checking against CapbilityStatement
+        
         '''Check files are in correct folder '''
         if path == 'structuredefinitions':
             if file.endswith("Example.xml") or (not file.startswith('Extension') and not file.startswith('UKCore')):
