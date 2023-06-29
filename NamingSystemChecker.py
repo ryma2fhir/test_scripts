@@ -24,7 +24,7 @@ for path in paths:
             if file.endswith("Example.xml") or (not file.startswith('Extension') and not file.startswith('UKCore')):
                 print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path+"'")
                 continue
-            if file.startswith('UKCore'): #Used for Capabiltystatement Checking
+            if file.startswith('UKCore'): #Used for Capabilitystatement Checking
                 name = file.replace('.xml','')
                 name = file.replace('UKCore-','')
                 if '-' not in name:
@@ -84,7 +84,7 @@ for tag in root.findall('.//{*}type'):
     capabilityStatement.append(tag.attrib["value"])
 
 for p in currentProfiles:
-    if p not in capabiltyStatement:
+    if p not in capabilityStatement:
         print(p,"is missing from the CapabilityStatement")
 print(currentProfiles)
 print(capabilityStatement)
