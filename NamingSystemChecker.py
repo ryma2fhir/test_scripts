@@ -26,8 +26,8 @@ for path in paths:
                 continue
             if file.startswith('UKCore'): #Used for Capabilitystatement Checking
                 profile = file.replace('.xml','')
-                profile = name.replace('UKCore-','')
-                if '-' not in name:
+                profile = profile.replace('UKCore-','')
+                if '-' not in profile: #ignore derived profiles
                     currentProfiles.append(profile)
                     
         if path == 'valuesets' and not file.startswith('ValueSet'):
