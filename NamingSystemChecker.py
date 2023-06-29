@@ -17,11 +17,18 @@ for path in paths:
         except:
             print("active",root.findall('.//{*}'+str('status'))[0].get('value'))
 
-        
+        currentProfiles = [] #Used for checking against CapbilityStatement
         '''Check files are in correct folder '''
-        if path == 'structuredefinitions' and (file.endswith("Example.xml") or (not file.startswith('Extension') and not file.startswith('UKCore'))):
-            print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path+"'")
-            continue
+        if path == 'structuredefinitions'
+            if file.endswith("Example.xml") or (not file.startswith('Extension') and not file.startswith('UKCore')):
+                print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path+"'")
+                continue
+            if file.startswith('UKCore'): #Used for Capabiltystatement Checking
+                name = file.replace('.xml','')
+                name = file.replace('UKCore-','')
+                if '-' not in profile:
+                    currentProfiles.append(name)
+                    
         if path == 'valuesets' and not file.startswith('ValueSet'):
             print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path+"'")
             continue
@@ -65,7 +72,18 @@ print('examples')
 for examples in examplesPath:
     if not examples.endswith("Example.xml"):
         print("\t",examples," - The filename is does not have the suffix 'Example'")
-              
+
+'''Capabilitystatement Checker - checks if all profiles are in the CapabilityStatement
+tree= ET.parse(mainFolder+'CapabilityStatement/CapabilityStatement-UKCore.xml')
+root = tree.getroot()
+
+capabilityStatement = []
+for tag in root.findall('//{*}type'):
+    capabilitystatement.append(tag.attrib["value"])
+
+for p in currentProfiles:
+    if p not in capabiltyStatement:
+        print(p,"is miissing from the CapabilityStatement")
 print("\n\nCheck Complete!")
     
         
