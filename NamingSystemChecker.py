@@ -74,7 +74,7 @@ for examples in examplesPath:
         print("\t",examples," - The filename is does not have the suffix 'Example'")
 
 '''Capabilitystatement Checker - checks if all profiles are in the CapabilityStatement'''
-tree= ET.parse(mainFolder+'CapabilityStatement/CapabilityStatement-UKCore.xml')
+tree= ET.parse('./CapabilityStatement/CapabilityStatement-UKCore.xml')
 root = tree.getroot()
 
 capabilityStatement = []
