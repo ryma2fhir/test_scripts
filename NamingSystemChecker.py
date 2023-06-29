@@ -1,4 +1,4 @@
-mport xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ET
 import os
 
 paths = ['structuredefinitions','valuesets','codesystems']
