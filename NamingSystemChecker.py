@@ -13,7 +13,7 @@ for path in paths:
         '''do not check retired assets'''
         try:
             if root.findall('.//{*}'+str('status'))[0].get('value') == 'retired':
-                break
+                continue
         except:
             print("active",root.findall('.//{*}'+str('status'))[0].get('value'))
             pass
@@ -21,13 +21,13 @@ for path in paths:
         '''Check files are in correct folder '''
         if path == 'structuredefinitions' and (file.endswith("Example.xml") or (not file.startswith('Extension') and not file.startswith('UKCore'))):
             print("\t",file," - The file has either an incorrect prefix or in the wrong folder '",path,"'")
-            break
+            continue
         if path == 'valuesets' and not file.startswith('ValueSet'):
             print("\t",file," - The file has either an incorrect prefix or in the wrong folder '",path,"'")
-            break
+            continue
         if path == 'codesystems' and not file.startswith('CodeSystem'):
             print("\t",file," - The file has either an incorrect prefix or in the wrong folder '",path,"'")
-            break
+            continue
         stop = 0
         '''check for missing elements'''
         elements = {'ID':'id','url':'url','name':'name','title':'title'}
