@@ -21,10 +21,13 @@ for path in paths:
         '''Check files are in correct folder '''
         if path == 'structuredefinitions' and (file.endswith("Example.xml") or (not file.startswith('Extension') and not file.startswith('UKCore'))):
             print("The file '"+file+"' has either an incorrect prefix or in the wrong folder '"+path+"'.")
+            break
         if path == 'valuesets' and not file.startswith('ValueSet'):
-            print("The file '"+file+"' has either an incorrect prefix or in the wrong folder '"+path+"'.")  
+            print("The file '"+file+"' has either an incorrect prefix or in the wrong folder '"+path+"'.")
+            break
         if path == 'codesystems' and not file.startswith('CodeSystem'):
-            print("The file '"+file+"' has either an incorrect prefix or in the wrong folder '"+path+"'.") 
+            print("The file '"+file+"' has either an incorrect prefix or in the wrong folder '"+path+"'.")
+            break
 
         '''check for missing elements'''
         elements = {'ID':'id','url':'url','name':'name','title':'title'}
