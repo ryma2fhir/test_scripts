@@ -39,7 +39,7 @@ for path in paths:
                 break
         print(elements)
             
-                '''check elements naming convention are correct'''
+        '''check elements naming convention are correct'''
         fileName = file.replace('.xml','')
         warnings = []
         if path == 'codesystems' or path == 'valuesets':
