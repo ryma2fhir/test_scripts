@@ -1,4 +1,4 @@
-import xml.etree.ElementTree as ET
+mport xml.etree.ElementTree as ET
 import os
 
 paths = ['structuredefinitions','valuesets','codesystems']
@@ -86,7 +86,7 @@ for p in currentProfiles:
     if p not in capabiltyStatement:
         print(p,"is missing from the CapabilityStatement")
 print(currentProfiles)
-print(capabilitystatement)
+print(capabilityStatement)
 print("\n\nCheck Complete!")
     
         
