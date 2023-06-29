@@ -19,7 +19,7 @@ for path in paths:
 
         currentProfiles = [] #Used for checking against CapbilityStatement
         '''Check files are in correct folder '''
-        if path == 'structuredefinitions'
+        if path == 'structuredefinitions':
             if file.endswith("Example.xml") or (not file.startswith('Extension') and not file.startswith('UKCore')):
                 print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path+"'")
                 continue
