@@ -33,11 +33,11 @@ for path in paths:
         elements = {'ID':'id','url':'url','name':'name','title':'title'}
         for key,value in elements.items():
             #try:
-            elements[key]=(root.findall('.//{*}'+str(value))[0].get('value'))    
+            elements[key]=(root.findall('.//{*}'+str(value))[0].get('value')) 
+            print((root.findall('.//{*}'+str(value))[0].get('value')))
             #except:
                 #print("\tThe element '"+key+"' is missing")
                 #break
-        print(elements)
             
         '''check elements naming convention are correct'''
         fileName = file.replace('.xml','')
