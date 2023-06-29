@@ -32,11 +32,11 @@ for path in paths:
         '''check for missing elements'''
         elements = {'ID':'id','url':'url','name':'name','title':'title'}
         for key,value in elements.items():
-            try:
-                elements[key]=(root.findall('.//{*}'+str(value))[0].get('value'))    
-            except:
-                print("\tThe element '"+key+"' is missing")
-                break
+            #try:
+            elements[key]=(root.findall('.//{*}'+str(value))[0].get('value'))    
+            #except:
+                #print("\tThe element '"+key+"' is missing")
+                #break
         print(elements)
             
         '''check elements naming convention are correct'''
