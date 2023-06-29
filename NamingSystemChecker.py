@@ -78,7 +78,7 @@ tree= ET.parse('./CapabilityStatement/CapabilityStatement-UKCore.xml')
 root = tree.getroot()
 
 capabilityStatement = []
-for tag in root.findall('//{*}type'):
+for tag in root.findall('.//{*}type'):
     capabilitystatement.append(tag.attrib["value"])
 
 for p in currentProfiles:
