@@ -83,10 +83,10 @@ capabilityStatement = []
 for tag in root.findall('.//{*}type'):
     capabilityStatement.append(tag.attrib["value"])
 
-for p in currents:
+for p in currentProfiles:
     if p not in capabilityStatement:
         print(p,"is missing from the CapabilityStatement")
-print(currents)
+print(currentProfiles)
 print(capabilityStatement)
 print("\n\nCheck Complete!")
     
