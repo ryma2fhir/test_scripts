@@ -77,6 +77,7 @@ for examples in examplesPath:
 tree= ET.parse('./CapabilityStatement/CapabilityStatement-UKCore.xml')
 root = tree.getroot()
 
+print('CapabilityStatement')
 capabilityStatement = []
 for tag in root.findall('.//{*}type'):
     capabilityStatement.append(tag.attrib["value"])
