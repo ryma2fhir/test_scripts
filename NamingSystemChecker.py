@@ -47,7 +47,7 @@ for path in paths:
                 stop = 1
         if stop == 1:
             continue
-            
+        assets = {"valuesets":"ValueSet","codesystems":"CodeSystem","structuredefinitions":"StructureDefinition"}    
         '''check elements naming convention are correct'''
         fileName = file.replace('.xml','')
         warnings = []
@@ -55,8 +55,10 @@ for path in paths:
             fileName = '-'.join(fileName.split('-')[1:])
         if not fileName == elements['ID']:
             warnings.append("\t\tThe 'id' element: "+elements['ID']+" is incorrect")
-        if not fileName == elements['url'].split('/')[-1]:
-            if not elements['url'].startswith('http://hl7.org/fhir/5.0/'): #passes any R5 extensions
+        if not elements['url'].startswith('http://hl7.org/fhir/5.0/'): #passes any R5 extensions
+            if not fileName == elements['url'].split('/')[-1]:
+                warnings.append("\t\tThe 'url' element: "+elements['url']+" is incorrect")
+            if not elements['url'].startswith('https://fhir.hl7.org.uk/'+assets[path]):
                 warnings.append("\t\tThe 'url' element: "+elements['url']+" is incorrect")
         if not ''.join(fileName.split('-')) == elements['name'].split('/')[-1]:
             warnings.append("\t\tThe 'name' element: "+elements['name']+" is incorrect")
