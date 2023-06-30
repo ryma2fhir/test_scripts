@@ -59,7 +59,7 @@ for path in paths:
             if not fileName == elements['url'].split('/')[-1]:
                 warnings.append("\t\tThe 'url' element: "+elements['url']+" is incorrect")
             if not elements['url'].startswith('https://fhir.hl7.org.uk/'+assets[path]):
-                warnings.append("\t\tThe 'url' element: "+elements['url']+" is incorrect")
+                warnings.append("\t\tThe 'url' element: "+elements['url']+" prefix is incorrect")
         if not ''.join(fileName.split('-')) == elements['name'].split('/')[-1]:
             warnings.append("\t\tThe 'name' element: "+elements['name']+" is incorrect")
         if not fileName.replace('-','') == elements['title'].replace(' ',''):
