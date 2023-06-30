@@ -36,8 +36,10 @@ for path in paths:
         if path == 'codesystems' and not file.startswith('CodeSystem'):
             print("\t",file," - The file has either an incorrect prefix or in the wrong folder '"+path+"'")
             continue
-        stop = 0
+            
+
         '''check for missing elements'''
+        stop = 0
         elements = {'ID':'id','url':'url','name':'name','title':'title'}
         for key,value in elements.items():
             try:
