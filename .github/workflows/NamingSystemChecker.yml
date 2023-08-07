@@ -1,4 +1,4 @@
-ho $fname: IOPS-FHIR-Validation-NamingSystem
+name: IOPS-FHIR-Validation-NamingSystem
 
 # Controls when the workflow will run
 on:
