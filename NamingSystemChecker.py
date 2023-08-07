@@ -80,7 +80,7 @@ for example in examplesPath:
     '''open file to find element values'''
     tree = ET.parse("./examples/"+example)
     root = tree.getroot()
-    if not root.findall('.//{*}id'))[0].get('value') == example.replace('.xml',''):
+    if not root.findall('.//{*}id')[0].get('value') == example.replace('.xml',''):
         print("\t\tThe example:",example,"id is incorrect")
 
 '''Capabilitystatement Checker - checks if all s are in the CapabilityStatement'''
