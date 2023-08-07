@@ -59,13 +59,13 @@ for path in paths:
             warnings.append("\t\t",elements['ID'],"- the 'id' is incorrect")
         if not elements['url'].startswith('http://hl7.org/fhir/5.0/'): #passes any R5 extensions
             if not fileName == elements['url'].split('/')[-1]:
-                warnings.append("\t\t",elements['url'],"- The 'url' element is incorrect")
+                warnings.append("\t\t"+elements['url']+" - The 'url' element is incorrect")
             if not elements['url'].startswith('https://fhir.hl7.org.uk/'+assets[path]):
-                warnings.append("\t\t",elements['url'],"- The 'url' element prefix is incorrect")
+                warnings.append("\t\t"+elements['url']+" - The 'url' element prefix is incorrect")
         if not ''.join(fileName.split('-')) == elements['name'].split('/')[-1]:
-            warnings.append("\t\t",elements['name'],"- The 'name' element is incorrect")
+            warnings.append("\t\t"+elements['name']+" - The 'name' element is incorrect")
         if not fileName.replace('-','') == elements['title'].replace(' ',''):
-            warnings.append("\t\t",elements['title'],"- The 'title' element is incorrect")
+            warnings.append("\t\t"+elements['title']+" - The 'title' element is incorrect")
         if warnings:
             print("\t",file)
             for x in warnings:
