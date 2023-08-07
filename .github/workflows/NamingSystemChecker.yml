@@ -41,4 +41,4 @@ jobs:
         run: python test_scripts/NamingSystemChecker.py
 
       - name: Execute Spell Check
-        run: find . -type f -name "*.xml" -exec sh -c 'for f; do echo $f, aspell list -H --camel-case $f |sort | uniq -c; done' sh {} \; 
+        run: find . -type f -name "*.xml" -exec sh -c 'for f; do echo $f; aspell list -H --camel-case $f |sort | uniq -c; done' sh {} \; 
