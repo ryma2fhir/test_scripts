@@ -31,7 +31,10 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-
+          
+      - name: Install dependencies
+        run: |
+          sudo apt install aspell
       
       - name: Execute Naming Convention Check
         #run: ls
