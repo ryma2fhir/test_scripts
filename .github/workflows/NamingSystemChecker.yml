@@ -42,3 +42,6 @@ jobs:
 
       - name: Execute Spell Check
         run: find -type f -name "*.xml" -exec sh -c 'for f; do echo $f;aspell list --camel-case <$f |sort|uniq -c;done' sh {} \; 
+
+      - name: sort
+        run: find -type f -name "*.xml" |sort
