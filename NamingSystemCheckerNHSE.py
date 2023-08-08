@@ -84,7 +84,7 @@ for example in examplesPath:
         print("\t",example,"The 'id' element is incorrect")
 
 '''Capabilitystatement Checker - checks if all s are in the CapabilityStatement'''
-tree= ET.parse('./CapabilityStatement/CapabilityStatement-England.xml')
+tree= ET.parse('./CapabilityStatement/England-CapabilityStatement.xml')
 root = tree.getroot()
 
 print('CapabilityStatement')
