@@ -12,6 +12,7 @@ for path in paths:
             tree = ET.parse("./"+path+"/"+file)
         except:
             print("\t",file,"- The file cannot be parsed. There is an error in the code")
+            break
         root = tree.getroot()
         
         '''do not check retired assets'''
