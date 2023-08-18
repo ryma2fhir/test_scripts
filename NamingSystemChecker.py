@@ -102,8 +102,11 @@ for p in currentProfiles:
     if p not in capabilityStatement:
         print("\t",p,"is missing from the CapabilityStatement")
 
-print("\n\nCheck Complete!")
+
 if error == True:
-    raise Exception('There has been an error in the system')
+    print("Please fix the errors found above")
+    sys.exit(2)
+else:
+    print("\n\nCheck Complete!")
     
         
