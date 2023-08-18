@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 import os
+import sys
 
 error = False 
 paths = ['structuredefinitions','valuesets','codesystems']
