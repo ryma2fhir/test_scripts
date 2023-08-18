@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 import os
 
+error = False 
 paths = ['structuredefinitions','valuesets','codesystems']
 currentProfiles = [] #Used for checking against CapbilityStatement
 for path in paths:
@@ -12,6 +13,7 @@ for path in paths:
             tree = ET.parse("./"+path+"/"+file)
         except:
             print("\t",file,"- The file cannot be parsed. There is an error in the code")
+            error = True
             continue
         root = tree.getroot()
         
@@ -101,5 +103,7 @@ for p in currentProfiles:
         print("\t",p,"is missing from the CapabilityStatement")
 
 print("\n\nCheck Complete!")
+if error == True:
+    raise Exception('There has been an error in the system')
     
         
