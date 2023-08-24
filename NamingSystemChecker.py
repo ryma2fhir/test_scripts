@@ -12,7 +12,7 @@ for path in paths:
         '''open file to find element values'''
         try:
             tree = ET.parse("./"+path+"/"+file)
-        except xml.etree.ElementTree.ParseError:
+        except ET.ParseError:
             print("\t",file,"- The file cannot be parsed. There is an error in the code")
             error = True
             continue
