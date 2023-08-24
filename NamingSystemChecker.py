@@ -13,7 +13,7 @@ for path in paths:
         try:
             tree = ET.parse("./"+path+"/"+file)
         except ET.ParseError as e:
-            print("\t",file,"- The XML is not well-formed. Fix the code: ",e)
+            print("\t",file,"- The XML code has an error that needs to be fixed before it can be chcked:",e)
             error = True
             continue
         root = tree.getroot()
