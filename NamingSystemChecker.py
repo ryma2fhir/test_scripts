@@ -112,9 +112,9 @@ for path in paths:
             if not root.findall('.//{*}'+str('name'))[1].get('value') == 'HL7 UK':
                 error=True
                 print("\t\tcontact.name - This SHALL be 'HL7 UK'")
-            except:
-                error=True
-                print("\t\tcontact.name - This element is missing")
+        except:
+            error=True
+            print("\t\tcontact.name - This element is missing")
     
         contact = {'system':'email','value':'ukfcore@hl7.org.uk','use':'work','rank':'1'}
         for key,value in contact.items():
