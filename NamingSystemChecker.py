@@ -116,7 +116,7 @@ for path in paths:
             error=True
             print("\t\tcontact.name - This element is missing")
     
-        contact = {'system':'email','value':'ukfcore@hl7.org.uk','use':'work','rank':'1'}
+        contact = {'system':'email','value':'ukcore@hl7.org.uk','use':'work','rank':'1'}
         for key,value in contact.items():
             try:
                 if not root.findall('.//{*}'+str(key))[0].get('value') == value:
