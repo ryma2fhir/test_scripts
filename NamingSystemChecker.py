@@ -79,8 +79,8 @@ for path in paths:
         warnings = []
         if path == 'codesystems' or path == 'valuesets':
             fileName = '-'.join(fileName.split('-')[1:])
-        if not fileName == elements['ID']:
-            warnings.append("\t\t"+elements['ID']+" - the 'id' is incorrect")
+        if not fileName == elements['id']:
+            warnings.append("\t\t"+elements['id']+" - the 'id' is incorrect")
         if not elements['url'].startswith('http://hl7.org/fhir/5.0/'): #passes any R5 extensions
             if not fileName == elements['url'].split('/')[-1]:
                 warnings.append("\t\t"+elements['url']+" - The 'url' element is incorrect")
