@@ -103,6 +103,7 @@ for path in paths:
             try:
                 root.findall('.//{*}'+str('purpose'))[0].get('value')
             except:
+                error=True
                 print("\t\tpurpose - This element is missing'")
         
                 
