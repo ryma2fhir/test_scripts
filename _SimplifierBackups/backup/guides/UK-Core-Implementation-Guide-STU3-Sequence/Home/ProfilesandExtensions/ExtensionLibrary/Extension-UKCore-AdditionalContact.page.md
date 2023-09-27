@@ -14,14 +14,14 @@ select
 	Description: description,
 	Profile_Purpose: purpose
 ```
+</div>
+<br>
 
 <table id="addToTranspose">
 <tr><td>Context of Use</td>
 <td>{{pagelink:Profile-ServiceRequest,text:ServiceRequest}}</td>
 </tr>
 </table>
-</div>
-<br>
 
 {{page:Home/ProfilesandExtensions/ExtensionTemplate.page.md}}
 <div id="Examples" class="tabcontent">
