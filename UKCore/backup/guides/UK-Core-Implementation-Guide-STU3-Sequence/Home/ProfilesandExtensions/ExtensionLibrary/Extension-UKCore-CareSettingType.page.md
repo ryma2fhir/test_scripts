@@ -1,3 +1,6 @@
+---
+subject: https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-CareSettingType
+---
 ## StructureDefinition Extension-UKCore-CareSettingType
 
 <div id="transpose">
@@ -22,30 +25,7 @@ select
 </div>
 <br>
 
-<div class="tab">
- <button class="tablinks active" onclick="openTab(event, 'Tree View')">Tree View</button>
-   <button class="tablinks" onclick="openTab(event, 'Table View')">Table View</button>
-   <button class="tablinks" onclick="openTab(event, 'XML View')">XML View</button>
-   <button class="tablinks" onclick="openTab(event, 'JSON View')">JSON View</button>
-  <button class="tablinks" onclick="openTab(event, 'Examples')">Examples</button>
-</div>
-
-<div id="Tree View" class="tabcontent" style="display:block">
-  <h3>Tree View</h3>
-{{tree:https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-CareSettingType}}
-</div>
-<div id="Table View" class="tabcontent">
-  <h3>Table View</h3>
-{{table:https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-CareSettingType}}
-</div>
-<div id="XML View" class="tabcontent">
-  <h3>XML View</h3>
-{{xml:https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-CareSettingType}}
-</div>
-<div id="JSON View" class="tabcontent">
-  <h3>JSON View</h3>
-{{json:https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-CareSettingType}}
-</div>
+{{page:Home/ProfilesandExtensions/ExtensionTemplate.page.md}}
 
 <div id="Examples" class="tabcontent">
 

@@ -961,7 +961,7 @@
         
             //fix issues with the templating
             function fixTemplatingIssues() {
-                // handle shifting context of use table into the transpose div
+                // handle shifting context of use tables into the transpose div
                 $('table#addToTranspose').each(function(index) {
                     if ($(this).parent().attr("id") != "transpose") {
                         $(this).parent().find("div#transpose").append($(this));
