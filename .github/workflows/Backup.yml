@@ -3,7 +3,7 @@ name: Back up simplifier project
 on:
   workflow_dispatch:
   schedule:
-    - cron: '* * * * *'
+    - cron: '0 * * * *'
 
 jobs:
   build:
