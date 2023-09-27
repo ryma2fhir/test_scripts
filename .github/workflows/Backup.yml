@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.REPO_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set today
         id: today
@@ -54,7 +54,7 @@ jobs:
       - name: Create Pull Request
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.REPO_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { repo, owner } = context.repo;
             const result = await github.rest.pulls.create({
@@ -78,7 +78,7 @@ jobs:
       - name: "Merge pull request"
         uses: "actions/github-script@v6"
         with:
-          github-token: ${{ secrets.REPO_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { repo, owner } = context.repo;
             const head = '${{ steps.branch-name.outputs.BRANCH }}'
