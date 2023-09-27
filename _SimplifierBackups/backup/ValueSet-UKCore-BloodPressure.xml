@@ -1,0 +1,55 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="UKCore-BloodPressure" />
+  <url value="https://fhir.hl7.org.uk/ValueSet/UKCore-BloodPressure" />
+  <version value="1.0.0" />
+  <name value="UKCoreBloodPressure" />
+  <title value="UK Core Blood Pressure" />
+  <status value="draft" />
+  <date value="2023-09-12" />
+  <publisher value="HL7 UK" />
+  <contact>
+    <name value="HL7 UK" />
+    <telecom>
+      <system value="email" />
+      <value value="ukcore@hl7.org.uk" />
+      <use value="work" />
+      <rank value="1" />
+    </telecom>
+  </contact>
+  <description value="A code from the SNOMED CT UK coding system for recording blood pressure. Selected from the SNOMED CT UK coding system: &#xD; - DescendantOrSelfOf 163020007 | On examination - blood pressure reading (finding)  &#xD; - MINUS  &amp;nbsp;&#xD; - 163030003 | On examination - Systolic blood pressure reading (finding)  &amp;nbsp;&#xD; - 163031004 | On examination - Diastolic blood pressure reading (finding)  &#xD;  &#xD; - DescendantOrSelfOf 135840009 | Blood pressure monitoring (regime/therapy)  &#xD; - MINUS  &amp;nbsp;&#xD; - 170599006 | 24 hr blood pressure monitoring (regime/therapy)  &#xD;  &#xD; - DescendantOrSelfOf 392570002 | Blood pressure finding (finding) &#xD; - MINUS  &amp;nbsp;&#xD; - 49844009 | Abnormal diastolic arterial pressure (finding) &amp;nbsp;&#xD; - 18352002 | Abnormal systolic arterial pressure (finding) &amp;nbsp;&#xD; - 23154005 | Increased diastolic arterial pressure (finding) &amp;nbsp;&#xD; - 18050000 | Increased systolic arterial pressure (finding) &amp;nbsp;&#xD; - 42689008 | Decreased diastolic arterial pressure (finding) &amp;nbsp;&#xD; - 81010002 | Decreased systolic arterial pressure (finding) &amp;nbsp;&#xD; - 707304009 | Post exercise systolic blood pressure response normal (finding) &#xD;  &#xD; - DescendantOrSelfOf 75367002 | Blood pressure (observable entity) &#xD; - MINUS  &amp;nbsp;&#xD; - 314463006 | 24 hour blood pressure (observable entity) &amp;nbsp;&#xD; - 72313002 | Systolic arterial pressure (observable entity) &amp;nbsp;&#xD; - 723232008 | Average blood pressure (observable entity) &amp;nbsp;&#xD; - 271650006 | Diastolic blood pressure (observable entity) &amp;nbsp;&#xD; - 271649006 | Systolic blood pressure (observable entity)" />
+  <copyright value="Copyright © 2021+ HL7 UK Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. HL7® FHIR® standard Copyright © 2011+ HL7 The HL7® FHIR® standard is used under the FHIR license. You may obtain a copy of the FHIR license at  https://www.hl7.org/fhir/license.html." />
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct" />
+      <filter>
+        <property value="constraint" />
+        <op value="=" />
+        <value value="descendantOrSelfOf 163020007 MINUS (163030003 OR 163031004)" />
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct" />
+      <filter>
+        <property value="constraint" />
+        <op value="=" />
+        <value value="descendantOrSelfOf 135840009 MINUS (170599006)" />
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct" />
+      <filter>
+        <property value="constraint" />
+        <op value="=" />
+        <value value="descendantOrSelfOf 392570002 MINUS (49844009 OR 18352002 OR 23154005 OR 18050000 OR 42689008 OR 81010002 OR 707304009)" />
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct" />
+      <filter>
+        <property value="constraint" />
+        <op value="=" />
+        <value value="descendantOrSelfOf 75367002 MINUS (314463006 OR 72313002 OR 723232008 OR 271650006 OR 271649006)" />
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
