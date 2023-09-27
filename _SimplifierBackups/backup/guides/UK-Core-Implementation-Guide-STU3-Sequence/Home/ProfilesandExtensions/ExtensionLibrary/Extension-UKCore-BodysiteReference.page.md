@@ -1,3 +1,6 @@
+---
+subject: https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-BodySiteReference
+---
 ## StructureDefinition Extension-UKCore-BodySiteReference
 
 <div id="transpose">
@@ -11,15 +14,14 @@ select
 	Description: description,
 	Profile_Purpose: purpose
 ```
+</div>
+<br>
 
 <table id="addToTranspose">
 <tr><td>Context of Use</td>
 <td>{{pagelink:Profile-Specimen,text:Specimen.collection.bodySite}}</td>
 </tr>
 </table>
-
-</div>
-<br>
 
 <div class="tab">
  <button class="tablinks active" onclick="openTab(event, 'Tree View')">Tree View</button>

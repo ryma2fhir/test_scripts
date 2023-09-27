@@ -1,3 +1,6 @@
+---
+subject: https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-AdmissionMethod
+---
 ## StructureDefinition Extension-UKCore-CodingSCTDescDisplay
 
 <div id="transpose">
