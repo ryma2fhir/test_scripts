@@ -59,7 +59,7 @@ select
 
 <div id="Examples" class="tabcontent">
   <h3>Examples</h3>
-<b>Example</b> - An example to illustrate record.<br/>
+<b>Pipe Smoker</b> - An example to illustrate recording a patient who smokes a pipe.<br/>
 {{pagelink:Example-UKCore-Observation-PipeSmoker}}<br><br>
 </div>
 

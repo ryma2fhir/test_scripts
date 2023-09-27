@@ -59,7 +59,7 @@ select
 
 <div id="Examples" class="tabcontent">
   <h3>Examples</h3>
-<b>Example</b> - An example to illustrate record.<br/>
+<b>24 hour monitoring</b> - An example to illustrate recording the average blood pressure over 24 hours.<br/>
 {{pagelink:Example-UKCore-Observation-24HourBloodPressure}}<br><br>
 </div>
 
