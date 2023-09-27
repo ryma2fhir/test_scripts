@@ -466,13 +466,13 @@
                 }
             }
 
-            // function add the submenus for terminology
+            // function add a seperator into terminology dropdown
             function createTerminologySeparator() {
                 $('ul.nav li.dropdown:eq(2) ul.dropdown-menu li:eq(0)').after('<li role="separator" class="divider"></li>');
             }
 
             
-            // looks for the pagetitle of Clinical Data Provider, and removes and sub h2's of Clinical Data Provider
+            // UNUSED - looks for the pagetitle of Clinical Data Provider, and removes and sub h2's of Clinical Data Provider
             function hideMultipleClincialDataProviders() {
                 var hasPageTitleH2 = $('h2[id^=page-title]:contains(Clinical Data Provider)');
                 if (hasPageTitleH2 != undefined && hasPageTitleH2.length > 0)
@@ -484,8 +484,9 @@
             }
         </script>
         <script>
+            //look for any anchor tags going to XML, which would open the resource in simpifier
+            // and remap these to the relevant asset in the IG
            function swapProfileTreeLinks() {
-                //, table.treetable tbody tr.constraints td.details p a[href$="xml"]
                 $('a[href$="xml"]').each(function(index) {
                     let urlReference = $(this)[0].href;
                     if (urlReference.includes("https://simplifier.net/resolve?scope=HL7FHIRUKCoreR4@current&filepath="))
@@ -522,8 +523,11 @@
                     }
 				});
 			}
+            //look for a div's called Table View, and the rows in the table
+            // if the first cell on a row is reference[0], remap the link to the matching example
+            // if the first cell on a row is url[0] or system[0], remap the link to the matching asset in the IG
+            // if the first cell on a row is code[0], remap the link to termbrowser for the SNOMED CT concept id
             function swapReferenceExampleLinks() {
-                //look for a div with id transpose
                 var isSNOMEDCT = false;
                 $("div[id='Table View'] div.path table tbody tr").each(function(index) {
                     if ($(this)[0].cells[0].innerText.endsWith("reference[0]"))
@@ -604,7 +608,7 @@
 				});
 			}
 
-            //remaps sitemap and licence links
+            //remaps sitemap and licence links to always point within the IG being read
             function fixFooterVersion() {
                 let pageUrl = window.location.href;
                 let pageVersion = "?" + pageUrl.split("?")[1];
@@ -735,7 +739,7 @@
                 }
             }
 
-            //code finds valuesets on their sub page / all vs page
+            //code finds valuesets on their sub page / all valueset page
             // and looks for the expansion table
             // for the all valuesets, it hides this, and makes the concepts text above a link to show/hide the table, and also swaps links for snomed ct concepts to go to termbrowser
             // for sub page displays, just looks for expansion tables containing snomed ct concepts, and rewrites them to termbrowser
@@ -785,7 +789,7 @@
             }
         </script>
         <script>
-            /* following chunk replicates nhse /\ and \/ sort buttons */
+            /* following chunk replicates old nhsd ig style /\ and \/ sort buttons */
 
             //for tables with class codes (codesystems, altered valusets)
             // shift the first row into a thead
@@ -915,7 +919,8 @@
             }
         </script>
         <script>
-            // this function wraps the left hand menu
+            //this function wraps the left hand menu items if they are too long
+            // numbers are arbitarily, but work of for NHSE / UKCore IGs
             function wrapSideBar() {
                 $('div.col-md-6 ul.nav li a').each(function(index) {
                     if ($(this)[0].scrollWidth > $(this).innerWidth()) {
@@ -953,12 +958,31 @@
             }
         </script>
         <script>
+        
+            //fix issues with the templating
+            function fixTemplatingIssues() {
+                // handle shifting context of use table into the transpose div
+                $('table#addToTranspose').each(function(index) {
+                    if ($(this).parent().attr("id") != "transpose") {
+                        $(this).parent().find("div#transpose").append($(this));
+                    }
+                });
+                //remove empty <p> before examples
+                $('div.tabcontent[id^="Examples"]').each(function(index) {
+                    $(this).prev("p:empty").remove();
+                });
+            }
+
+            //fix wcag compliance issues caused by the way simplifier renders
             function fixWebAccessibility() {
+                // remove additional unneeded role on navbar
                 $('nav.navbar').removeAttr("role");
+                //set title and role on all trees
                 $('table.treetable').each(function(index) {
                     $(this).attr("role","presentation");
                     $(this).attr("title","FHIR Tree View");
                 });
+                //set title on all valuset tables
                 $('table.regular').each(function(index) {
                     if ($(this).find("th").length > 0) {
                         if ($(this).find(":contains('System')")) {
@@ -971,12 +995,15 @@
                         $(this).attr("title","ValueSet details");
                     }
                 });
+                // set title on all code lists
                 $('table.codes').each(function(index) {
                     $(this).attr("title","Expanded code list");
                 });
+                // set role on table view
                 $('div.path table').each(function(index) {
                     $(this).attr("role","presentation");
                 });
+                //set title on FQL generated tables, ideally from the first column of the thead
                 $('table.table.table-bordered.assets.forceWhite').each(function(index) {
                     if ($(this).attr("title") == undefined || $(this).attr("title") == "") {
                         if ($(this).find("thead tr th").length > 0) {
@@ -986,7 +1013,7 @@
                         }
                     }
                 });
-                    
+                //set a unique id on all tree/table/example divs etc
                 var iHTMLCount=0;
                 var iTreeCount=0;
                 var iTableCount=0;
@@ -1018,14 +1045,17 @@
                         $(this).attr("id","Usage" + iUsageCount);
                     }
                 });
+                // set unique id on all transposed fl table divs
                 var iTransposeCount=0;
                 $('div[id="transpose"]').each(function(index) { 
                     iTransposeCount++;
                     $(this).attr("id","transpose" + iTransposeCount);
                 });
-
+                //loop through all div's with id's
                 $('div').each(function(index) { 
                     if ($(this).attr("id") != undefined) {
+                        // look for an h2, with either a matching id or page-title
+                        // and update it to be unique
                         var sectionHeading = $(this).find("h2");
                         if (sectionHeading != undefined && sectionHeading.length > 0){
                             if (sectionHeading.attr("id") == $(this).attr("id")) {
@@ -1034,6 +1064,7 @@
                                 sectionHeading.attr("id", $(this).attr("id") + "-sectionheading");
                             }
                         }
+                        //if the div is renderParent, shift its title into the alt of the img it contains
                         if ($(this).attr("id") == "renderParent"){
                             var imgTitle = $(this).attr("title");
                             $(this).removeAttr("title");
@@ -1043,6 +1074,7 @@
                 });
             }
 
+            //removes any development notice and footer if its being rendered in an iframe
             function pageInIframe() {
                 if (window.frameElement !== null)
                 {
@@ -1050,8 +1082,10 @@
                     $('footer').remove();
                 }
             }
+
             // function runs on page load
             $(function() {
+                fixTemplatingIssues();
                 transposeFQLTables();
                 detablifyUsageFQL();
                 tidyUpFQLTables();
