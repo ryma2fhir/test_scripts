@@ -24,6 +24,7 @@ jobs:
 
       - name: Update README
         run: |
+          cd _SimplifierBackups
           export NUMLINES=$(wc -l < README.md)
           export NUMLINES=$(($NUMLINES-2))
           head -$NUMLINES README.md > README1.md
