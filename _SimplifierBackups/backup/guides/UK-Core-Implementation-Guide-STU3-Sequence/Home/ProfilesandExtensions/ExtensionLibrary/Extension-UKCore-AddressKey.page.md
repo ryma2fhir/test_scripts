@@ -1,5 +1,5 @@
 ---
-subject: https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-AdditionalContact
+subject: https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-AddressKey
 ---
 ## StructureDefinition Extension-UKCore-AddressKey
 
@@ -14,7 +14,6 @@ select
 	Description: description,
 	Profile_Purpose: purpose
 ```
-
 </div>
 <br>
 
@@ -23,7 +22,6 @@ select
 <td>Address</td>
 </tr>
 </table>
-
 
 {{page:Home/ProfilesandExtensions/ExtensionTemplate.page.md}}
 
