@@ -59,7 +59,7 @@ select
 
 <div id="Examples" class="tabcontent">
   <h3>Examples</h3>
-<b>Example</b> - An example to illustrate record.<br/>
+<b>Fasting Test</b> - An example to illustrate recording the blood glucose level following a period of fasting.<br/>
 {{pagelink:Example-UKCore-Observation-FastingTest}}<br><br>
 </div>
 

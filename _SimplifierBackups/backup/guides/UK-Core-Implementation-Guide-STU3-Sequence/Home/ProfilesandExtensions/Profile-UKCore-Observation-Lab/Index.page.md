@@ -59,10 +59,6 @@ select
 
 <div id="Examples" class="tabcontent">
   <h3>Examples</h3>
-<b>Red cell count</b> - An example to illustrate the observation of a red cell count for a blood specimen.<br/>
-{{pagelink:Example-UKCore-Observation-Lab-RedCellCount}}<br><br>
-<b>White cell count</b> - An example to illustrate the observation of a white cell count for a blood specimen.<br/>
-{{pagelink:Example-UKCore-Observation-Lab-WhiteCellCount}}
 </div>
 
 <div id="Usage" class="tabcontent">
