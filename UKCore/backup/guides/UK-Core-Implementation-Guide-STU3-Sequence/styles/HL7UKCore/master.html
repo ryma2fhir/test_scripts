@@ -368,13 +368,13 @@
                     var clinicalApiLi = $('ul.nav-stacked li a[title|="Clinical Data Provider"]');
 
                     if (constraintsLi != undefined && constraintsLi.length > 0) {
-                        constraintsLi.after("<li><hr></li>");
+                        constraintsLi.after("<li role='separator'><hr></li>");
                     } else if (bindingsLi != undefined && bindingsLi.length > 0) {
-                        bindingsLi.after("<li><hr></li>");
+                        bindingsLi.after("<li role='separator'><hr></li>");
                     } else if (extensionsLi != undefined && extensionsLi.length > 0) {
-                        extensionsLi.after("<li><hr></li>");
+                        extensionsLi.after("<li role='separator'><hr></li>");
                     } else if (mvcLi != undefined && mvcLi.length > 0) {
-                        mvcLi.after("<li><hr></li>");
+                        mvcLi.after("<li role='separator'><hr></li>");
                     }
 
                     if (patientApiLi != undefined && patientApiLi.length > 0)

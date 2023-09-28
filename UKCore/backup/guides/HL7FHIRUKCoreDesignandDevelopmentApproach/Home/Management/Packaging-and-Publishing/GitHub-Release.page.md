@@ -30,7 +30,7 @@ Package
 INSERT URL
 
 NPM
-Note: he npm package contains only active FHIR assets, and does not include retired assets, or ones in development which are not part of this formal release, and therefore these are not referenced in the STUx Sequence Implementation Guide..
+Note: The npm package contains only active FHIR assets, and does not include retired assets, or ones in development which are not part of this formal release, and therefore these are not referenced in the STUx Sequence Implementation Guide..
 
 npm --registry https://packages.simplifier.net install package@version
 ```

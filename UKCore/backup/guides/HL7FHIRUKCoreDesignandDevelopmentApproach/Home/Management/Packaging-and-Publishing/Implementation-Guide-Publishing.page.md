@@ -67,9 +67,10 @@ Once the package has been created the IG can be published. Within the IG editor:
 <li>Select Publish</li>
 </ol>
 
---- 
+---
 
 ### Overwriting and Republishing a Guide
+
 If there are any errors spotted after publishing the guide it is possible to overwrite and republish using the same version number.
 
 <ol>
