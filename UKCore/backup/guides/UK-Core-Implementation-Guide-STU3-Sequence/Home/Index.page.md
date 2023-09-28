@@ -71,7 +71,8 @@ This Guide is divided into several pages which are listed at the top of each pag
 <li>Examples: The header for examples of UK Core FHIR assets.
 <ul>
   <li>{{pagelink:Library-Examples-Index}}: This is the list of examples available in this implementation guide</li>
-  <li>{{pagelink:Library-Examples-All}}: This is the rendering of all examples available in this implementation guide</li>
+  <li>{{pagelink:Library-Examples-Profiles}}: This is the rendering of all Profile examples available in this implementation guide</li>
+  <li>{{pagelink:Library-Examples-Extensions}}: This is the rendering of all Extension examples available in this implementation guide</li>
 </ul>
 </li>
 <li>{{pagelink:Home-ContactUs}}:  How to Contact the key parties associated with this implementation guide.</li>
