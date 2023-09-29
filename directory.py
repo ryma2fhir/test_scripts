@@ -13,5 +13,5 @@ print()
  
 # parent directory
 parent = os.path.dirname(path)
-print("Parent directory", parent)
+print("Parent directory", os.path.basename(parent))
 
