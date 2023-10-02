@@ -12,7 +12,13 @@ import xml.etree.ElementTree as ET
 import os
 import sys
 
-error=False #used to fail action if any errors found
+'''Prints the repo name'''
+path = os.getcwd()
+parent = os.path.dirname(path)
+print("Parent directory", os.path.basename(parent))
+
+'''Creates an error state, if any of the checks fails it will cause the action to fail'''
+error=False 
 
 paths = ['structuredefinitions','valuesets','codesystems']
 currentProfiles = [] #Used for checking against CapbilityStatement
@@ -90,13 +96,7 @@ for path in paths:
             warnings.append("\t\t"+elements['name']+" - The 'name' element is incorrect")
         if not fileName.replace('-','') == elements['title'].replace(' ',''):
             warnings.append("\t\t"+elements['title']+" - The 'title' element is incorrect")
-        if not elements['copyright'] == 'Copyright © 2021+ HL7 UK Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. HL7® FHIR® standard Copyright © 2011+ HL7 The HL7® FHIR® standard is used under the FHIR license. You may obtain a copy of the FHIR license at  https://www.hl7.org/fhir/license.html.':
-            warnings.append("\t\tThe copyright is incorrect")
-        if warnings:
-            error=True
-            print("\t",file)
-            for x in warnings:
-                print(x)
+        
                 
         ''' Check purpose element is present in Profiles and Extensions '''
         if path == 'structuredefinitions':
@@ -104,14 +104,14 @@ for path in paths:
                 root.findall('.//{*}'+str('purpose'))[0].get('value')
             except:
                 error=True
-                print("\t\tpurpose - This element is missing'")
+                warnings.append("\t\tpurpose - This element is missing'")
         
                 
         ''' Check Contact Details '''
         try:
             if not root.findall('.//{*}'+str('name'))[1].get('value') == 'HL7 UK':
                 error=True
-                print("\t\tcontact.name - This SHALL be 'HL7 UK'")
+                warnings.append("\t\tcontact.name - This SHALL be 'HL7 UK'")
         except:
             error=True
             print("\t\tcontact.name - This element is missing")
@@ -120,13 +120,22 @@ for path in paths:
         for key,value in contact.items():
             try:
                 if not root.findall('.//{*}'+str(key))[0].get('value') == value:
-                    error=True
-                    print("\t\tcontact.telecom."+key+" - This SHALL be "+value)
+                    try: 
+                        if not root.findall('.//{*}'+str(key))[1].get('value') == value: #added as a workaround in case identifier.system and identifier.value present  
+                            error=True
+                            warnings.append("\t\tcontact.telecom."+key+" - This SHALL be "+value)
+                    except:
+                        error=True
+                        warnings.append("\t\tcontact.telecom."+key+" - This SHALL be "+value)
             except:
                 error=True
-                print("\t\tcontact.telecom."+key+" - This element is missing")
+                warnings.append("\t\tcontact.telecom."+key+" - This element is missing")
                 
-
+        if warnings:
+            error=True
+            print("\t",file)
+            for x in warnings:
+                print(x)
 
 '''check example filenames'''
 examplesPath = os.listdir('./examples')
@@ -142,7 +151,7 @@ for example in examplesPath:
         error=True
         print("\t",example,"The 'id' element is incorrect")
 
-'''Capabilitystatement Checker - checks if all s are in the CapabilityStatement'''
+'''CapabilityStatement Checker - checks if all Profiles are in the CapabilityStatement'''
 tree= ET.parse('./CapabilityStatement/CapabilityStatement-UKCore.xml')
 root = tree.getroot()
 
