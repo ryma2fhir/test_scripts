@@ -32,6 +32,9 @@ jobs:
           unzip export.zip -x settings.style
           mv export.zip ..
           cd ..
+
+      - name: Sleep random #Used to stop error due to multiple actions wanting PRs to be merged at the same time
+        run: sleep ${RANDOM:0:240}m #sleeps for a random number of minutes between 0-2 hours
   
       - name: Create branch and commit
         run: |
