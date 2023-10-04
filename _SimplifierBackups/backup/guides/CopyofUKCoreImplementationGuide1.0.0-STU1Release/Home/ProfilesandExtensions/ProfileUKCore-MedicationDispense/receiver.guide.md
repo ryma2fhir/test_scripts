@@ -1,5 +1,0 @@
-## `receiver`
-
-Optional.
-
----

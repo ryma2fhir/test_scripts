@@ -1,5 +1,0 @@
-## `daysSupply`
-
-Optional.
-
----

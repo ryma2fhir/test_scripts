@@ -1,5 +1,0 @@
-## `manufacturer`
-
-Optional.
-
----

@@ -1,5 +1,0 @@
-## `insurance`
-
-Optional.
-
----

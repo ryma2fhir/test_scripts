@@ -1,5 +1,0 @@
-## `ingredient`
-
-Optional.
-
----

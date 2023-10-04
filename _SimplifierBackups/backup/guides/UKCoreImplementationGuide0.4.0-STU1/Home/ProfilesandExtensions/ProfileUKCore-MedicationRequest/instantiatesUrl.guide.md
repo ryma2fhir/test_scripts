@@ -1,5 +1,0 @@
-## `instantiatesUrl`
-
-Optional.
-
----
