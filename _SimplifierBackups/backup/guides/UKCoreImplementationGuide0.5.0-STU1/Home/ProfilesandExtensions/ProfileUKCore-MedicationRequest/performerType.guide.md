@@ -1,5 +1,0 @@
-## `performerType`
-
-Optional.
-
----

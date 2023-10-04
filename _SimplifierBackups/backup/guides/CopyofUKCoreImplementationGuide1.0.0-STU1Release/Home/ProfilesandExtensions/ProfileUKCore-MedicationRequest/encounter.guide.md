@@ -1,5 +1,0 @@
-## `encounter`
-
-Optional.
-
----

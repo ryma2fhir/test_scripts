@@ -1,5 +1,0 @@
-## `reported[x]`
-
-Optional.
-
----

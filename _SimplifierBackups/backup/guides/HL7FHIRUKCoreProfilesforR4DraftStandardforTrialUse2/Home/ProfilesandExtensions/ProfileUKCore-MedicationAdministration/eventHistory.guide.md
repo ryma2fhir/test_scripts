@@ -1,5 +1,0 @@
-## `eventHistory`
-
-Optional.
-
----

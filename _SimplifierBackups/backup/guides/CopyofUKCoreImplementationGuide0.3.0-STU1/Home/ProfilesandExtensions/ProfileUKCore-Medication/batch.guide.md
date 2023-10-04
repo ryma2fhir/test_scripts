@@ -1,5 +1,0 @@
-## `batch`
-
-Optional.
-
----
